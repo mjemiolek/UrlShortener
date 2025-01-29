@@ -117,13 +117,17 @@
                         }).then(function(response){
                             self.response = response.data;
                             $('.copyLink').fadeIn(500);
+                            $('.copyLink').siblings('.form').find("#p1").val(self.response);
                             console.log(self.response);
                         });
                     }
                 }
             },
             copyContent(){
-
+                $("#p1").select();
+                this.copyTextString = 'Url Coppied successfully';
+                document.execCommand("copy");
+                this.url = this.response;
             }
         }
     }
@@ -133,7 +137,7 @@
         display:none;
     }
 
-    #clipboard{
+    #clipBoard{
         display:block;
         margin-top: 28px;
         background-color: #03cbf8;
@@ -144,6 +148,7 @@
 
     #clipBoard:hover{
         background-color: #333;
+        cursor: pointer;
     }
 
     #clipBoard:hover, clipBoard:active, clipBoard:focus{
