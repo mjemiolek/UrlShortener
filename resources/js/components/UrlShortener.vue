@@ -116,10 +116,14 @@
                             shortlink: currentUrl,
                         }).then(function(response){
                             self.response = response.data;
+                            $('.copyLink').fadeIn(500);
                             console.log(self.response);
                         });
                     }
                 }
+            },
+            copyContent(){
+
             }
         }
     }

@@ -11,4 +11,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Redirect from shortened url to site
+Route::get('/u/{any}', [UrlShortenerController::class, 'handle']);
+
+//Save shorten urls
 Route::post('/url/shorten', [UrlShortenerController::class, 'store']);
