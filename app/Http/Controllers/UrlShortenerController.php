@@ -51,6 +51,19 @@ class UrlShortenerController extends Controller
     }
 
 
+    // Get URLS
+    public function getUserUrls($id)
+    {
+        $urls = Url::where('user_id', $id)->get();
+
+        if (!$urls) {
+            return response()->json(['error' => 'User not found'], 404);
+        }
+
+        return response()->json($urls);
+    }
+
+
 
     // Redirect user to original url
     public function handle(Request $request, $url)
